@@ -1,19 +1,19 @@
-apiVersion: apps/v1
-kind: Deployment
+apiVersion: apps/v1 # Specifies the API version used to create the deployment.
+kind: Deployment # Indicates that this resource is a Deployment.
 metadata:
-  name: notesapi-deployment
+  name: notesapi-deployment # Name of the Deployment resource.
 spec:
-  replicas: 2
+  replicas: 1 # Number of replicas (pods) to run for this Deployment.
   selector:
     matchLabels:
-      app: notesapi
+      app: notesapi # Selector to identify pods that belong to this Deployment.
   template:
     metadata:
       labels:
-        app: notesapi
+        app: notesapi # Labels assigned to pods created by this Deployment.
     spec:
       containers:
-      - name: notesapi-container
-        image: piyush1127/spring-boot-docker:latest
+      - name: notesapi-container # Name of the container within the pod.
+        image: piyush1127/spring-boot-docker:latest # Docker image to use for the container.
         ports:
-        - containerPort: 9099
+        - containerPort: 9099 # Port on which the container listens.
