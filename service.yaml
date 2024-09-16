@@ -1,12 +1,14 @@
-apiVersion: v1
-kind: Service
+apiVersion: v1 # Specifies the API version used to create the service.
+kind: Service # Indicates that this resource is a Service.
 metadata:
-  name: notesapi-service
+  name: notesapi-service # Name of the Service resource.
 spec:
   selector:
-    app: notesapi
+    app: notesapi # Selector to determine which pods the service will route traffic to. Must match the labels of the target pods.
   ports:
-    - protocol: TCP
-      port: 80
-      targetPort: 9099
-  type: LoadBalancer  # Or LoadBalancer if you're on a cloud provider
+    - protocol: TCP # Network protocol used by the service. Typically TCP for most applications.
+      port: 80 # Port that the service will expose and on which it will receive traffic.
+      targetPort: 9099 # Port on the container to which traffic should be directed. Must match the container's port.
+  type: LoadBalancer # Type of service. LoadBalancer creates an external load balancer (cloud provider dependent) to distribute traffic.
+
+  
